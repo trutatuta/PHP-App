@@ -24,4 +24,13 @@ class User{
         $this->status = User::STATUS_USER;
     }
 
+    public function getUsername(){
+        return $this->username;
+    }
+
+    public function saveToDb($db){
+        $db->sqlQuery("INSERT INTO users (username, email, password, dateOfCreate, status)
+                     VALUES ('".$this->username."', '".$this->email."', '".$this->password."', '".$this->dateOfCreation."', '".$this->status."')");
+    }
+
 }
