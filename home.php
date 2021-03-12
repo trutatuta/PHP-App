@@ -2,14 +2,14 @@
 
 session_start();
 
+include("header.php");
 echo $_SESSION["username"];
 if(isset($_POST["logout"])){
-    session_unset();
     session_destroy();
+    session_unset();
     header("Location: index.php");
     exit();
 }
-include("header.php");
 ?>
 
 <form action="home.php" method="post">

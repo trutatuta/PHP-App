@@ -1,11 +1,23 @@
 <?php
 
 session_start();
-$d = new DateTime('NOW');
+
+require("classes/DataBase.php");
+require("functions.php");
 
 if(!isset($_SESSION["username"])){
 
     include("header.php");
+    if(isset($_POST["submit"])){
+        $db = new \classes\DB\DataBase("localhost", "root", "", "app");
+        if(logIn($db, $_POST["username"], $_POST["password"])){
+            $_SESSION["username"] = $_POST["username"];
+            header("Location: home.php");
+            exit();
+        }else{
+            echo "Username or password is incorect <br />";
+        }
+    }
     ?>
 
 
@@ -16,7 +28,6 @@ if(!isset($_SESSION["username"])){
     </form>
 
     <a href="register.php">Create New Account</a>
-
 
     <?php
     include("footer.php");

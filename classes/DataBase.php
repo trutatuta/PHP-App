@@ -23,8 +23,12 @@ class DataBase{
         $this->mysqli->close();
     }
 
-    public function select(){
-        
+    public function select($sql){
+        $result = $this->mysqli->query($sql);
+        if($result->num_rows > 0){
+            return $result->fetch_assoc();
+        }
+
     }
 
     public function sqlQuery($sql){
