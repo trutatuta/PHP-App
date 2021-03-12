@@ -23,4 +23,15 @@ class DataBase{
         $this->mysqli->close();
     }
 
+    public function select(){
+        
+    }
+
+    public function sqlQuery($sql){
+        if($this->mysqli->query($sql) !== TRUE){
+            return $this->mysqli->error;
+        }
+    }
+
+
 }

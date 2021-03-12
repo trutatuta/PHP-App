@@ -24,5 +24,4 @@ class User{
         $this->status = User::STATUS_USER;
     }
 
-    
 }
