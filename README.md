@@ -1,2 +1,2 @@
 # php-app
-My PHP web app
+Simple PHP web application 
